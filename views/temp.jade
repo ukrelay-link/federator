@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  h1= ActivityPub Relay at #{host}
+  p This is an Activity Relay for fediverse instances.
+  p #{note}
+  p For Mastodon and Misskey instances, you may subscribe to this relay with the address: #{baseurl}/inbox
+  p For Friendica, Pleroma and other instances, you may subscribe to this relay with the address: #{baseurl}/actor
+  p To host your own relay, you may download the code at this address: https://github.com/ukrelay-link/federator
+  p List of #{instances.length} registered instances:
+  ul 
+    each instance in instances
+     li instance
