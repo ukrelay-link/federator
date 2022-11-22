@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="shortcut icon" th:href="@{|${baseurl}/favicon.ico|}" />
+<title th:text="'ActivityPub Relay at ' + ${host}"></title>
+<style>
+    body {
+        padding: 50px;
+        font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+        background-color: black;
+        color: white;
+    }
+    a {
+        color: greenyellow;
+    }
+</style>
+</head>
+<body lang="en">
+<h1 th:text="'ActivityPub Relay at ' + ${host}"></h1>
+<p>This is an Activity Relay for fediverse instances.</p>
+<p th:text="${note}"></p>
+<p>For Mastodon and Misskey instances, you may subscribe to this relay with the address:
+    <a th:text="${baseurl} + '/inbox'" th:href="${baseurl} + '/inbox'"></a></p>
+<p>For Friendica, Pleroma and other instances, you may subscribe to this relay with the address:
+    <a th:text="${baseurl} + '/actor'" th:href="${baseurl} + '/actor'"></a></p>
+<p>To host your own relay, you may download the code at this address:
+    <a href='https://github.com/ukrelay-link/federator'>https://github.com/ukrelay-link/federator</a></p>
+<p><span th:text="'List of ' + ${instances.size} + ' registered instances:'"></span><br>
+<ul th:each="instance : ${instances}">
+    <li th:text="${instance}"></li>
+</ul>
+</body>
+</html>
